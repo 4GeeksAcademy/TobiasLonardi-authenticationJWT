@@ -51,7 +51,7 @@ def add_user():
     db.session.add(user)
     try:
         db.session.commit()
-        return jsonify("User created", 201)
+        return jsonify("User created"), 201
     except Exception as error:
         db.session.rollback()
         return jsonify(f"Error: {error.args}"), 500
